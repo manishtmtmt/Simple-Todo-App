@@ -1,23 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import {Counter} from "./components/Counter"
+import { useState } from 'react';
+import {Todo} from "./components/Todo"
 
 function App() {
+  const [toggle, setToggle] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => setToggle(!toggle)}>{toggle ? "Show Todo App" : "Show Counter App"}</button>
+      {toggle ? <Counter /> : <Todo />}
     </div>
   );
 }
